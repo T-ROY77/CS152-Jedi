@@ -1,5 +1,4 @@
 package expression
 
-trait Expression {
-
-}
+trait Expression: 
+  def execute(env: Environment): Value
