@@ -1,11 +1,17 @@
 package value
 
-case class Boole(val Value: Boolean) extends Value:
-//  def &&(other: Value): Boole =
-//    this.Value && other
+import context.TypeException
+import expression.Literal
 
-  //  def ||(other: Value): Boole =
-  //    this.Value || other
+case class Boole(value: Boolean) extends Literal with Value:
+  def &&(other: Value): Boole =
+    other match
+      case x: Boole => Boole(this.value && x.value)
+      case _ => throw new TypeException("Boolean operand required")
 
-    def unary_!(): Boole =
-      Boole(!this.Value)
+  def ||(other: Value): Boole =
+    other match
+      case x: Boole => Boole(this.value || x.value)
+      case _ => throw new TypeException("Boolean operand required")
+
+  def unary_! = Boole(!this.value)

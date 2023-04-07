@@ -3,5 +3,5 @@ package value
 import expression.Literal
 
 trait Addable extends Literal:
-//  def +(other: Value): Addable =
-//    this.execute(env) + other
+  def +(other: Value): Addable =
+    this + other

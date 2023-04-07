@@ -4,13 +4,13 @@ import context._
 
 case class Exact(value: Int) extends Numeric with Ordered[Value] :
 
-  def +(other: Value): Addable =
+  override def +(other: Value): Addable =
     other match
       case x: Exact => Exact(this.value + x.value)
       case x: Inexact => Inexact(this.value.toDouble + x.value)
       case _ => throw new TypeException("Numeric operand required")
 
-  def /(other: Value): Numeric =
+  override def /(other: Value): Numeric =
     other match
       case x: Exact =>
         if (x.value == 0) throw IllegalValueException("Can't divide by 0")
@@ -20,7 +20,7 @@ case class Exact(value: Int) extends Numeric with Ordered[Value] :
         else Inexact(this.value.toDouble / x.value)
       case _ => throw new TypeException("Numeric operand required")
 
-  def unary_- = Exact(-this.value)
+  override def unary_- = Exact(-this.value)
 
   def compare(other: Value): Int =
     other match
