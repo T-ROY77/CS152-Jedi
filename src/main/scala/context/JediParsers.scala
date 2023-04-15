@@ -1,8 +1,8 @@
 //package context
 //
-//import expression.*
-//import value.*
-//import scala.util.*
+//import scala.util.parsing.combinator._
+//import expression._
+//import value._
 //
 ///*
 // * Notes:
@@ -13,7 +13,7 @@
 // * This could probably have been a singleton
 // */
 //
-//class JediParsers extends RegexParser {
+//class Jedi1Parsers extends RegexParsers {
 //
 //  def expression: Parser[Expression] = declaration | conditional | disjunction | failure("Invalid expression")
 //
@@ -37,7 +37,7 @@
 //
 //  // inequality ::= sum ~ (("<" | ">" | "!=") ~ sum)?
 //
-//  // sum ::= product ~ ("+" | "-") ~ product)*
+//  // sum ::= product ~ ("+" | "-") ~ product)* 
 //  def sum: Parser[Expression] = product ~ rep(("+"|"-") ~ product) ^^ {
 //    case p ~ more => parseSums(p, more)
 //  }
