@@ -5,4 +5,11 @@ import value._
 
 //A variable is a value that contains another value
 case class Variable(value: Value) extends Value:
-  override def toString: String = super.toString
+  def ==(other: Value): Boole =
+    Boole(false)
+
+  override def toString(): String =
+    value.toString()
+
+  override def hashCode(): Int =
+    value.hashCode()

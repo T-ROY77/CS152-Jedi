@@ -20,7 +20,7 @@ case class Boole(value: Boolean) extends Literal:
 
   def unary_! = Boole(!this.value)
   
-  def equals(other: Value): Boole =
+  def ==(other: Value): Boole =
     other match
       case x: Boole => Boole(this.value == x.value)
       case _ => throw new TypeException("Boolean operand required")

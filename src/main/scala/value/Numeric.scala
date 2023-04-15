@@ -5,13 +5,13 @@ import value._
 
 
 trait Numeric extends Addable:
-  def *(other: Value): Numeric =
-    this * other
+  def *(other: Value): Numeric
 
-  def -(other: Value): Numeric =
-    this - other
+  def -(other: Value): Numeric
 
-  def /(other: Value): Numeric =
-    this / other
+  def /(other: Value): Numeric
 
-  def unary_- = this
+  def unary_- : Numeric
+
+
+

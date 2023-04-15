@@ -19,6 +19,7 @@ import expression._
   println(e < two) // false
   println(two == twotoo) // true
 
+
 @main def testBooles() =
   println(!Boole.TRUE || Boole.FALSE || Boole.TRUE) // true
   println(!(Boole.FALSE || Boole.TRUE) || Boole.TRUE) // true

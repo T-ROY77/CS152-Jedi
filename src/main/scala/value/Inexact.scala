@@ -22,7 +22,7 @@ case class Inexact(value: Double) extends Numeric with Ordered[Value] :
         else Inexact(this.value / x.value)
       case _ => throw new TypeException("Numeric operand required")
 
-  override def unary_- = Inexact(-this.value)
+  def unary_- = Inexact(-this.value)
 
   def compare(other: Value): Int =
     other match
@@ -30,4 +30,27 @@ case class Inexact(value: Double) extends Numeric with Ordered[Value] :
       case x: Inexact => this.value.compare(x.value)
       case _ => throw new TypeException("Arguments must be comparable")
 
-// *, -, equals, toString, hashCode
+  def *(other: Value): Numeric =
+    other match
+      case x: Exact => Exact(this.value.toInt * x.value)
+      case x: Inexact => Inexact(this.value * x.value)
+      case _ => throw new TypeException("Numeric operand required")
+
+  def -(other: Value): Numeric =
+    other match
+      case x: Exact => Exact(this.value.toInt - x.value)
+      case x: Inexact => Inexact(this.value - x.value)
+      case _ => throw new TypeException("Numeric operand required")
+
+
+  def ==(other: Value): Boole =
+    other match
+      case x: Exact => Boole(this.value == x.value)
+      case x: Inexact => Boole(this.value == x.value.toInt)
+      case _ => throw new TypeException("Arguments must be comparable")
+
+  override def toString(): String =
+    value.toString()
+
+  override def hashCode(): Int =
+    value.hashCode()

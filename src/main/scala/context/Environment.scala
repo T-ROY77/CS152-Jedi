@@ -5,7 +5,7 @@ import value._
 
 import scala.collection.mutable.*
 
-class Environment(var extension: Environment = null) extends HashMap[Identifier, Value] with Value:
+class Environment(var extension: Environment = null) extends HashMap[Identifier, Value]:
 
   // used by closures to bind parameters to arguments
   def bulkPut(params: List[Identifier], args: List[Value]) =
