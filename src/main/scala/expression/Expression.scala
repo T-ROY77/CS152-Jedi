@@ -1,7 +1,8 @@
 package expression
+import context._
+import expression._
+import value._
 
-import context.Environment
-import value.Value
 
 trait Expression: 
   def execute(env: Environment): Value

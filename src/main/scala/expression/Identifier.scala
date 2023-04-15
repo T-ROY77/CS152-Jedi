@@ -1,7 +1,9 @@
 package expression
+import context._
+import expression._
+import value._
 
-import context.Environment
-case class Identifier(val name: String) extends Expression {
+case class Identifier(name: String) extends Expression {
   override def toString = name
   def execute(env: Environment) = env(this);
 }

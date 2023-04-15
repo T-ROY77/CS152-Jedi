@@ -1,6 +1,8 @@
 package value
-
 import context._
+import expression._
+import value._
+
 
 case class Inexact(value: Double) extends Numeric with Ordered[Value] :
 

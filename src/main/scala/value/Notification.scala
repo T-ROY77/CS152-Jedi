@@ -1,10 +1,14 @@
 package value
+import context._
+import expression._
+import value._
 
+//Notifications are acknowledgements (e.g., "ok", "done", "unspecified") returned by expressions that produce side effects such as updating a variable, store, or environmen
 case class Notification() extends Value:
   override def toString: String = super.toString
 
 
-object Notification extends Value:
+object Notification:
   val OK = "ok"
   val DONE = "done"
   val UNSPECIFIED = "unspecified"
