@@ -1,8 +1,8 @@
 package context
 
-import scala.util.parsing.combinator._
-import expression._
-import value._
+import expression.*
+import value.*
+import scala.util.*
 
 /*
  * Notes:
@@ -13,7 +13,7 @@ import value._
  * This could probably have been a singleton
  */
 
-class JediParsers extends RegexParsers {
+class JediParsers extends RegexParser {
 
   def expression: Parser[Expression] = declaration | conditional | disjunction | failure("Invalid expression")
 

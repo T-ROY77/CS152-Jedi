@@ -78,16 +78,10 @@ object alu:
   private def write(args: List[Value]): Value = { println(args(0)); Notification.DONE }
 
   private def same(args: List[Value]): Value =
-    def helper(result: Numeric, unseen: List[Value]): Numeric =
-      if (unseen.isEmpty) result
-      else unseen.head match
-        case h: Numeric => helper(result == h, unseen.tail)
-        case _ => throw TypeException("Inputs to same must be Numeric")
-
-    if (args.size < 2) throw new TypeException("2 or more inputs required by same")
+    if (args.size != 2) throw new TypeException("2 inputs required by same")
     args(0) match
-      case n: Numeric => helper(n, args.tail)
-      case _ => throw new TypeException("Inputs to same must be Numeric")
+      case x: Ordered[Value] => Boole(x.equals(args(1)))
+      case _ => throw TypeException("Inputs to same must be orderable")
 
   private def more(args: List[Value]): Value =
     if (args.size != 2) throw new TypeException("2 inputs required by more")
@@ -99,5 +93,8 @@ object alu:
     if (args.size != 2) throw new TypeException("2 inputs required by unequals")
     Boole(args(0) != args)
 
-  private def not(args: Value): Value =
-    Boole(!args)
+  private def not(args: List[Value]): Value =
+    if (args.size != 1) throw new TypeException("1 input required by not")
+    args(0) match
+      case x: Numeric => -x
+      case _ => throw TypeException("Inputs to not must be Numeric")

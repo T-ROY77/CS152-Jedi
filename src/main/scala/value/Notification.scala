@@ -9,6 +9,6 @@ case class Notification() extends Value:
 
 
 object Notification:
-  val OK = "ok"
-  val DONE = "done"
-  val UNSPECIFIED = "unspecified"
+  val OK = Chars("ok")
+  val DONE = Chars("done")
+  val UNSPECIFIED =Chars("unspecified")
