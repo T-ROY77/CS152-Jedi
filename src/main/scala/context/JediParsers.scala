@@ -1,6 +1,6 @@
 package context
 
-import scala.util._
+import scala.util.parsing.combinator._
 import expression._
 import value._
 
