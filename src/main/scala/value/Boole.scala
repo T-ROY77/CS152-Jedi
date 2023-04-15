@@ -3,7 +3,7 @@ package value
 import context.TypeException
 import expression.Literal
 
-case class Boole(value: Boolean) extends Literal with Value:
+case class Boole(value: Boolean) extends Literal:
   def &&(other: Value): Boole =
     other match
       case x: Boole => Boole(this.value && x.value)
