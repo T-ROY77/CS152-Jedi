@@ -11,4 +11,4 @@ case class Declaration(identifier: Identifier, expr: Expression) extends Special
     val vals: List[Value] = List(value)
     val ids: List[Identifier] = List(identifier)
     env.bulkPut(ids, vals)
-    Chars("ok")
+    Chars("ok") 

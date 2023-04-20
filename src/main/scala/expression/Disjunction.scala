@@ -11,4 +11,4 @@ case class Disjunction(operands: List[Expression]) extends SpecialForm:
       if (acc.execute(env) == Boole(true)) acc
       else if (expr.execute(env) != Boole(true)) Boole(false)
       else acc
-    }
+    } 
