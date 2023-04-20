@@ -4,7 +4,6 @@ import context._
 import expression._
 import value._
 
-//not sure
 case class Disjunction(operands: List[Expression]) extends SpecialForm:
   def execute(env: Environment): Value =
     operands.foldLeft(Boole(true)) { (acc, expr) =>
