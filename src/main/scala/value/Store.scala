@@ -5,13 +5,13 @@ import context._
 
 class Store(private var elems: ArrayBufffer[Value] = ArrayBuffer[Value]()) extends Value {
   // adds e to the end of store
-  def add(e: Value) {elems += e}
+  def add(e: Value):  elems += e
   // inserts e at position pos in this
-  def put(e: Value, pos: Integer) {???}
+  def put(e: Value, pos: Integer): elems[pos] = e}
   // removes element at position pos from this
-  def rem(pos: Integer) {???}
+  def rem(pos: Integer): elems.delete(pos)
   // returns element at position pos in this
-  def get(pos: Integer): Value = ???
+  def get(pos: Integer): Value = elems[pos]
   // returns true ie this contains e
   def contains(e: Value): Boole = ???
   // returns the size of this
