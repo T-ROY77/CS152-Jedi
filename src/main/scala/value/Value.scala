@@ -7,7 +7,7 @@ import value._
 
 trait Value:
 
-  def ==(other: Value): Value
+  //def ==(other: Value): Value
 
   def toString(): String
 
