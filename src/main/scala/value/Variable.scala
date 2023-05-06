@@ -5,12 +5,12 @@ import expression._
 import value._
 
 //A variable is a value that contains another value
-case class Variable(value: Value) extends Value:
+case class Variable(content: Value) extends Value:
   def ==(other: Value): Boole =
     Boole(false)
 
   override def toString(): String =
-    value.toString()
+    "[" + content.toString() + "]"
 
   override def hashCode(): Int =
-    value.hashCode()
+    content.hashCode()
